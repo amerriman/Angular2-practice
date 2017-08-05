@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router'
 
 import { AppComponent }   from './app.component';
 import { BooksListComponent }   from './books/books-list/books-list.component';
+import { BooksHomeComponent }   from './books/books-home/books-home.component';
 import { TruncatePipe } from './shared/pipes/truncate.pipe';
 import { FavoriteComponent } from './favorites/favorite.component';
 
@@ -16,12 +17,13 @@ import { BookService } from './books/book.service';
                        FormsModule,
                        HttpModule, RouterModule.forRoot([
                          {path: 'books', component: BooksListComponent},
-                         { path: '', redirectTo: 'books', pathMatch: 'full'},
+                         {path: 'home', component: BooksHomeComponent},
+                         { path: '', redirectTo: 'home', pathMatch: 'full'},
                          {path: '**', redirectTo: 'books', pathMatch: 'full'}
                          ])],
   providers: [BookService],
   declarations: [ AppComponent,
-                          BooksListComponent,
+                          BooksListComponent, BooksHomeComponent,
                           TruncatePipe,
                           FavoriteComponent ],
   bootstrap:    [ AppComponent ]
