@@ -25,8 +25,12 @@ var BookService = (function () {
         return this._http
             .get('api/books/books.json')
             .map(function (response) { return response.json(); })
-            .do(function (data) { return console.log(data); })
             .catch(this.handleError);
+    };
+    BookService.prototype.getBook = function (id) {
+        return this.getBooks()
+            .map(function (books) { return books.find(function (book) { return book.id === id; }); })
+            .do(function (data) { return console.log(data); });
     };
     BookService.prototype.handleError = function (error) {
         console.error(error);

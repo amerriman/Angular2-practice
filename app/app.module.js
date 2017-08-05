@@ -13,6 +13,7 @@ var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var books_list_component_1 = require("./books/books-list/books-list.component");
+var book_details_component_1 = require("./books/book-details/book-details.component");
 var books_home_component_1 = require("./books/books-home/books-home.component");
 var truncate_pipe_1 = require("./shared/pipes/truncate.pipe");
 var favorite_component_1 = require("./favorites/favorite.component");
@@ -27,12 +28,13 @@ var AppModule = (function () {
                 http_1.HttpModule, router_1.RouterModule.forRoot([
                     { path: 'books', component: books_list_component_1.BooksListComponent },
                     { path: 'home', component: books_home_component_1.BooksHomeComponent },
+                    { path: 'book/:id', component: book_details_component_1.BookDetailsComponent },
                     { path: '', redirectTo: 'home', pathMatch: 'full' },
                     { path: '**', redirectTo: 'books', pathMatch: 'full' }
                 ])],
             providers: [book_service_1.BookService],
             declarations: [app_component_1.AppComponent,
-                books_list_component_1.BooksListComponent, books_home_component_1.BooksHomeComponent,
+                books_list_component_1.BooksListComponent, books_home_component_1.BooksHomeComponent, book_details_component_1.BookDetailsComponent,
                 truncate_pipe_1.TruncatePipe,
                 favorite_component_1.FavoriteComponent],
             bootstrap: [app_component_1.AppComponent]

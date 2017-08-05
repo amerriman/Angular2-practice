@@ -14,7 +14,7 @@
                 <h4 class="pull-right">
                   {{book.price | currency: 'EUR' : true}}
                 </h4>
-                <h4><a href="product.html">{{book.name}}</a></h4>
+                <h4><a [routerLink]="['/book', book.id]">{{book.name}}</a></h4>
                 <p><b>Author: </b>{{book.author}}</p>
                 <p><b>Description: </b>{{book.description | limitChar: '10'}}</p>
                 <p><b>Published On: </b>{{book.releaseDate}}</p>
